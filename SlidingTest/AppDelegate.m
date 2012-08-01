@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "InitialSlidingViewController.h"
+#import "ECSlidingViewController.h"
+#import "TopViewController.h"
 
 @implementation AppDelegate
 
@@ -14,7 +17,18 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    InitialSlidingViewController *initialSlidingViewController = [[InitialSlidingViewController alloc] init];
+    [[self window] setRootViewController:initialSlidingViewController];
+    
+    
+    
+    ECSlidingViewController *slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
+
+    TopViewController *top = [[TopViewController alloc] init];
+    slidingViewController.topViewController = top;
+
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
